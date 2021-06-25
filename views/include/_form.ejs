@@ -1,0 +1,19 @@
+ <!-- form handling -->
+ <form action="/api/users" method="POST" id="add_note">
+    <div class="new_note">
+        <div class="form-group">
+            <label for="title" class="">Title</label>
+            <input type="hidden" name="id" value="">
+            <input type="text" name="title" placeholder="Enter note title">
+        </div>
+        <div class="form-group">
+            <label for="content" class="">Content</label><br>
+            <textarea name="content" placeholder="Write your note content here"></textarea>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn text-dark update">Save</button>
+        </div>
+
+    </div>
+</form>
