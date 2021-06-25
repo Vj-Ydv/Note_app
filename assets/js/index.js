@@ -29,7 +29,7 @@ $("#update_note").submit(function(event){
 })
 
 if(window.location.pathname == "/"){
-    $ondelete = $(".table tbody td a.delete");
+    $ondelete = $("a.delete");
     $ondelete.click(function(){
         var id = $(this).attr("data-id")
 
