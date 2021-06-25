@@ -1,6 +1,6 @@
 var Notedb = require('../model/model');
 
-// create and save new user
+// create and save new note
 exports.create = (req,res)=>{
     // validate request
     if(!req.body){
@@ -8,14 +8,14 @@ exports.create = (req,res)=>{
         return;
     }
 
-    // new user
+    // new note
     const user = new Notedb({
         title : req.body.title,
         content : req.body.content
         
     })
 
-    // save user in the database
+    // save note in the database
     user
         .save(user)
         .then(data => {
@@ -30,7 +30,7 @@ exports.create = (req,res)=>{
 
 }
 
-// retrieve and return all users/ retrive and return a single user
+// retrieve and return all notes/ retrive and return a single note
 exports.find = (req, res)=>{
 
     if(req.query.id){
@@ -39,15 +39,15 @@ exports.find = (req, res)=>{
         Notedb.findById(id)
             .then(data =>{
                 if(!data){
-                    res.status(404).send({ message : "Not found user with id "+ id})
+                    res.status(404).send({ message : "Not found note with id "+ id})
                 }else{
                     res.send(data)
                 }
             })
             .catch(err =>{
-                res.status(500).send({ message: "Erro retrieving user with id " + id})
+                res.status(500).send({ message: "Erro retrieving note with id " + id})
             })
-
+    
     }else{
         Notedb.find().sort({ createdOn: 'desc' })
             .then(user => {
@@ -57,11 +57,25 @@ exports.find = (req, res)=>{
                 res.status(500).send({ message : err.message || "Error Occurred while retriving user information" })
             })
     }
-
-    
 }
 
-// Update a new idetified user by user id
+exports.findtitle = (req, res)=>{
+    const title = req.params.title;
+
+    Notedb.find({"title": title})
+        .then(data =>{
+            if(!data){
+                res.status(404).send({ message : "Not found note with title "+ title})
+            }else{
+                res.send(data)
+            }
+        })
+        .catch(err =>{
+            res.status(500).send({ message: "Erro retrieving note with title " + title})
+        })
+}
+
+// Update a new idetified note by note id
 exports.update = (req, res)=>{
     if(!req.body){
         return res
@@ -73,17 +87,17 @@ exports.update = (req, res)=>{
     Notedb.findByIdAndUpdate(id, req.body, { useFindAndModify: false})
         .then(data => {
             if(!data){
-                res.status(404).send({ message : `Cannot Update user with ${id}. Maybe user not found!`})
+                res.status(404).send({ message : `Cannot Update note with ${id}. Maybe note not found!`})
             }else{
                 res.send(data)
             }
         })
         .catch(err =>{
-            res.status(500).send({ message : "Error Update user information"})
+            res.status(500).send({ message : "Error Update note information"})
         })
 }
 
-// Delete a user with specified user id in the request
+// Delete a note with specified note id in the request
 exports.delete = (req, res)=>{
     const id = req.params.id;
 
@@ -93,13 +107,13 @@ exports.delete = (req, res)=>{
                 res.status(404).send({ message : `Cannot Delete with id ${id}. Maybe id is wrong`})
             }else{
                 res.send({
-                    message : "User was deleted successfully!"
+                    message : "note was deleted successfully!"
                 })
             }
         })
         .catch(err =>{
             res.status(500).send({
-                message: "Could not delete User with id=" + id
+                message: "Could not delete note with id=" + id
             });
         });
 }
