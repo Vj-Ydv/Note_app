@@ -24,7 +24,7 @@ a {
 }
 
 .nav-brand{
-    font-size: 1.5em;
+    font-size: 2.2em;
     font-weight: bold;
     color:white;
 }
@@ -46,8 +46,6 @@ a {
     border: 1px solid var(--border-btn);
     box-shadow: 1px 3px 10px #e9ecef;
 }
-
-
 
 .inline{
     display: inline-block;
@@ -85,7 +83,6 @@ a {
     margin: 2em 0;
 }
 
-/*  add user & update user template */
 .form-title{
     margin-top: 2em;
 }
@@ -99,43 +96,24 @@ a {
     margin: auto;
 }
 
-#update_note .form-group,
-#add_note .form-group{
-    margin: .4em 0;
-}
-
 #update_note .form-group input[type="text"],
 #add_note .form-group input[type="text"]{
     width: 100%;
-    padding: .6em 1em;
-    margin: .5em 0;
-    border: 1px solid var(--border);
-    font-family: 'Barlow', sans-serif;
-    font-size: 1em;
-    border-radius: .2em;
+    
 }
-
-#update_note .form-group .radio,
-#add_note .form-group .radio{
-    margin: 1em 2em;
-}
-
 
 #update_note .form-group .btn,
 #add_note .form-group .btn{
     width: 100%;
-    padding: .9em 1em;
-    background-color:#16db93; 
-    border: none;
-    font-family: 'PT Sans', sans-serif;
-    font-size: 1em;
-    cursor: pointer;
-    border-radius: .2em;
-    margin: .5em 0;
+    padding: .9em 1em; 
 }
 
 #update_note .form-group .btn:hover,
 #add_note .form-group .btn:hover{
     background-color: var(--dark);
     color: var(--border);
+}
+
+.card-title{
+    color:rgb(75, 4, 105);
 }

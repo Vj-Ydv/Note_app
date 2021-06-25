@@ -49,7 +49,7 @@ exports.find = (req, res)=>{
             })
 
     }else{
-        Notedb.find()
+        Notedb.find().sort({ createdOn: 'desc' })
             .then(user => {
                 res.send(user)
             })
