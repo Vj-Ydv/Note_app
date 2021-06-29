@@ -5,7 +5,7 @@ This is a simple note taking application performing CRUD operations. The databas
 npm install
 ```
 
-Then Create a config.env file if not present, and create PORT and MONGO_URI Variable within that file and specify Values of these files.
+Then Create a config.env file (if not already present), and create PORT and MONGO_URI Variable within that file and specify Values of these files.
 example:
 MONGO_URI variable looks like,
 MONGO_URI=mongodb+srv://username:password@cluster0.p4bna.mongodb.net/DatabaseName?retryWrites=true&w=majority
@@ -25,7 +25,6 @@ eg: http://localhost:3000/api/notetitle/Note1
 (The UI of this module is still in progress...)
 
 
-link to github repository:
-https://github.com/Vj-Ydv/Note_app
-
+See live demo here:
+https://newnoteapp.herokuapp.com/
 
